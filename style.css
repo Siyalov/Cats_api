@@ -36,7 +36,15 @@ body {
    height: 50px;
    border-radius: 8px;
    box-shadow: 0 0 5px 0 silver;
+   line-height: 50px;
+    text-align: center;
+    font-size: 70px;
+    color: rgb(43, 148, 43);
 }
+
+.btn.btn-red {
+color: red;
+} 
 .card {
    box-shadow: 0 0 5px 0 silver;
    border-radius: 8px;
@@ -53,7 +61,16 @@ body {
    grid-row-end: span 2;
    background-size: cover;
    background-position: center;
+   background-repeat: no-repeat;
 }
+
+.card>.pic.big-pic {
+   width: 120px;
+   height: 120px;
+   
+}
+
+
 .card>.name {
    grid-column-end: span 2;
    font-size: 24px;
@@ -80,9 +97,9 @@ body {
    align-items: center;
 }
 .popup {
-   padding: 30px;
+   padding: 35px;
    background-color: #7b9eb6;
-   width: 370px;
+   width: 400px;
    box-sizing: border-box;
    border-radius: 8px;
    position: relative;
@@ -139,4 +156,8 @@ border-radius: 14px;
 
 .popup h2 {
 text-align: center;
+}
+ 
+.card .description {
+   width: 400%;
 }

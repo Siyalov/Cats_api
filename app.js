@@ -28,6 +28,7 @@ console.log(catsList);
 const addForm = document.forms.add;
 addForm.addEventListener("submit", function (e) {
   addCat(e, api, Array.from(popupList), catsList);
+  //showPopup(Array.from(popupList), "add");
 });
 
 if (!catsList) {

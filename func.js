@@ -23,7 +23,22 @@ const createCard = (data, parent, arr) => {
 
   card.append(pic, age, rate, name);
   card.addEventListener("click", function () {
-    showPopup(arr, "card");
+    const popup = showPopup(arr, "card");
+    popup.innerHTML = `<div class="card">
+    <div class="pic big-pic" style = "background-image:url(${
+      data.img_link || "images/cat.jfif"
+    })"></div>
+    <div class="age">${data.age}</div>
+    <div class="rate">
+      <span>☆</span>
+      <span>☆</span>
+      <span>☆</span>
+      <span>☆</span>
+      <span>☆</span>
+    </div>
+    <div class="name">${data.name}</div>
+    <div class="description">${data.description}</div>
+  </div>`;
   });
   parent.append(card);
 };
@@ -38,6 +53,7 @@ const showPopup = (list, type, content) => {
 
   el.classList.add("active");
   el.parentElement.classList.add("active");
+  return el;
 };
 
 const addCat = (e, api, popupList, store) => {
@@ -63,9 +79,9 @@ const addCat = (e, api, popupList, store) => {
       if (data.message === "ok") {
         createCard(body, document.querySelector(".container"));
         store.push(body);
-        localStorage.setItem("cards");
+        localStorage.setItem("cats", JSON.stringify(store));
         e.target.reset();
-        document.querySelector("popup-wrapper").classList.remove("active");
+        document.querySelector(".popup-wrapper").classList.remove("active");
       }
       //showPopup(popupList, "info", data.message);
     });
