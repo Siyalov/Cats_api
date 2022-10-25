@@ -15,7 +15,7 @@ const createCard = (data, parent, arr) => {
 
   const pic = document.createElement("div");
   pic.className = "pic";
-  pic.style.backgroundImage = `url(${data.img_link || "images/cat.jfif"})`;
+  pic.style.backgroundImage = `url(${data.img_link || "images/cat.jpeg"})`;
 
   const name = document.createElement("div");
   name.className = "name";
@@ -24,7 +24,8 @@ const createCard = (data, parent, arr) => {
   card.append(pic, age, rate, name);
   card.addEventListener("click", function () {
     const popup = showPopup(arr, "card");
-    popup.innerHTML = `<div class="card">
+    popup.innerHTML = `<div class="controls"><button name="delete">УДАЛИТЬ</button><button name="edit">РЕДАКТИРОВАТЬ</button></div> 
+    <div class="card">
     <div class="pic big-pic" style = "background-image:url(${
       data.img_link || "images/cat.jfif"
     })"></div>
@@ -37,8 +38,29 @@ const createCard = (data, parent, arr) => {
       <span>☆</span>
     </div>
     <div class="name">${data.name}</div>
-    <div class="description">${data.description}</div>
-  </div>`;
+    <div class="description" >${data.description} </div>
+    
+    
+  </div>
+  `;
+    const del = popup.querySelector("[name='delete']");
+    const edit = popup.querySelector("[name='edit']");
+    del.addEventListener("click", function () {
+      api
+        .delCat(data.id)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.message === "ok") {
+            // store.push(body);
+            // localStorage.setItem("cats", JSON.stringify(store));
+            document.querySelector(".popup-wrapper").classList.remove("active");
+            localStorage.removeItem("cats");
+            location.reload();
+          }
+          //showPopup(popupList, "info", data.message);
+        });
+    });
   });
   parent.append(card);
 };

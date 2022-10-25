@@ -13,6 +13,7 @@ if (!user) {
 }
 
 const api = new Api(user);
+window.api = api;
 
 const container = document.querySelector(".container");
 const btn = document.querySelector(".dashboard").firstElementChild;
