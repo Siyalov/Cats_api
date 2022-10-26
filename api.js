@@ -24,7 +24,7 @@ class Api {
     });
   }
   uppCat(id, body) {
-    return fetch(`${this.path}${this.name}/add`, {
+    return fetch(`${this.path}${this.name}/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

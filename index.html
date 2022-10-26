@@ -22,25 +22,7 @@
       <div class="btn"></div>
       <div class="btn"></div>
     </nav>
-    <main class="container">
-      <!-- <div class="card">
-        <div class="pic"></div>
-        <div class="age">10</div>
-        <div class="rate">
-          <span>☆</span>
-          <span>☆</span>
-          <span>☆</span>
-          <span>☆</span>
-          <span>☆</span>
-        </div>
-        <div class="name">Tronn</div>
-      </div>
-      <div class="card"></div>
-       <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div> 
-      <div class="card"></div> -->
-    </main>
+    <main class="container"></main>
     <div class="popup-wrapper">
       <div class="popup" data-type="card">
         <div class="close">+</div>
@@ -50,9 +32,6 @@
         <div class="close">+</div>
         <div class="content">
           <h2>Добавить кота!</h2>
-          <!-- 
-          
-          -->
           <form id="add" action="">
             <div class="row">
               <label for="i1">Имя котика</label>
@@ -77,13 +56,13 @@
                 id="i5"
                 name="rate"
                 min="0"
-                max="10"
-                value="10"
+                max="5"
+                value="5"
               />
             </div>
             <div class="row">
               <label for="i6">Любимчик</label>
-              <input type="checkbox" id="i6" name="favorite" />
+              <input type="checkbox" id="i6" name="favourite" />
             </div>
             <div class="row">
               <label for="i7">Описание</label>
@@ -94,7 +73,8 @@
                 rows="5"
               ></textarea>
             </div>
-            <button type="submit">Добавить котика</button>
+            <button type="submit" data-name="add">Добавить котика</button>
+            <button type="submit" data-name="save">Сохранить кота</button>
           </form>
         </div>
       </div>
@@ -105,7 +85,6 @@
         </div>
       </div>
     </div>
-
     <script src="app.js " type="module"></script>
   </body>
 </html>

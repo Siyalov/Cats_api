@@ -13,7 +13,6 @@ if (!user) {
 }
 
 const api = new Api(user);
-window.api = api;
 
 const container = document.querySelector(".container");
 const btn = document.querySelector(".dashboard").firstElementChild;
@@ -28,8 +27,12 @@ console.log(catsList);
 
 const addForm = document.forms.add;
 addForm.addEventListener("submit", function (e) {
-  addCat(e, api, Array.from(popupList), catsList);
-  //showPopup(Array.from(popupList), "add");
+  const add = Array.from(popupList).filter((e) => e.dataset.type == "add")[0];
+  if (add.classList.contains("add-new")) {
+    addCat(e, api, Array.from(popupList), catsList);
+  } else {
+    editCat(e, api, Array.from(popupList), catsList);
+  }
 });
 
 if (!catsList) {
@@ -42,7 +45,7 @@ if (!catsList) {
         localStorage.setItem("cats", JSON.stringify(data.data));
 
         data.data.forEach((cat) => {
-          createCard(cat, container, Array.from(popupList));
+          createCard(cat, container, Array.from(popupList), api);
         });
       } else {
         showPopup(Array.from(popupList), "info", data.message);
@@ -50,7 +53,7 @@ if (!catsList) {
     });
 } else {
   catsList.forEach((cat) => {
-    createCard(cat, container, Array.from(popupList));
+    createCard(cat, container, Array.from(popupList), api);
   });
 }
 
@@ -62,7 +65,13 @@ popupList.forEach((p) => {
 });
 
 btn.addEventListener("click", (e) => {
-  showPopup(Array.from(popupList), "add");
+  const addForm = document.forms.add;
+  addForm.reset();
+  const id = addForm.querySelector('[name="id"]');
+  id.disabled = false;
+  const add = showPopup(Array.from(popupList), "add");
+  add.classList.add("add-new");
+  add.classList.remove("add-edit");
 });
 
 popBox.addEventListener("click", function (e) {
