@@ -1,196 +1,217 @@
 body {
-   background-color: silver;
-   display: grid;
-   grid-template-columns: 90px 720px;
-   height: 100vh;
-   box-sizing: border-box;
-   margin: 0;
-   font-family: sans-serif;
-   gap: 30px;
-   padding: 50px calc(50% - 420px);
+  background-color: silver;
+  display: grid;
+  grid-template-columns: calc(150px + 2 * 20px) 720px;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  gap: 30px;
+  padding: 50px calc(50% - 420px);
 }
 .dashboard {
-   background-color: #dedede;
-   border-radius: 8px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 20px;
-   gap: 20px;
+  background-color: #dedede;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
 }
 .container {
-   background-color: #dedede;
-   border-radius: 8px;
-   height: 100%;
-   overflow-y: auto;
-   overflow-x: hidden;
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 30px;
-   padding: 30px;
-   align-content: flex-start;
-   box-sizing: border-box;
+  background-color: #dedede;
+  border-radius: 8px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 30px;
+  align-content: flex-start;
+  box-sizing: border-box;
 }
 .btn {
-   width: 50px;
-   height: 50px;
-   border-radius: 8px;
-   box-shadow: 0 0 5px 0 silver;
-   line-height: 50px;
-    text-align: center;
-    font-size: 70px;
-    color: rgb(43, 148, 43);
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 silver;
+  line-height: 50px;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(43, 148, 43);
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .btn.btn-red {
-color: red;
-} 
+  color: red;
+}
+
+.btn:hover {
+  box-shadow: 0 0 12px 0 silver;
+}
+
 .card {
-   box-shadow: 0 0 5px 0 silver;
-   border-radius: 8px;
-   padding: 20px;
-   display: grid;
-   grid-template-columns: 70px auto;
-   gap: 14px 20px;
+  box-shadow: 0 0 5px 0 silver;
+  border-radius: 8px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 70px auto;
+  gap: 14px 20px;
+  transition: 0.4s;
+  cursor: pointer;
 }
-.card>.pic {
-   width: 70px;
-   /* height: 70px; */
-   background-color: silver;
-   border-radius: 8px;
-   grid-row-end: span 2;
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
+.card:hover {
+  box-shadow: 0 0 10px 0 rgb(158, 158, 158);
+}
+.card > .pic {
+  width: 70px;
+  /* height: 70px; */
+  background-color: rgb(173, 173, 173);
+  border-radius: 8px;
+  grid-row-end: span 2;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.card>.pic.big-pic {
-   width: 120px;
-   height: 120px;
-   
+.card > .pic.big-pic {
+  width: 120px;
+  height: 120px;
 }
 
-
-.card>.name {
-   grid-column-end: span 2;
-   font-size: 24px;
+.card > .name {
+  grid-column-end: span 2;
+  font-size: 24px;
 }
-.card>.age {
-   font-size: 2rem;
-   justify-self: center;
+.card > .age {
+  font-size: 2rem;
+  justify-self: center;
 }
-.card>.rate {
-   font-size: 14px;
-   display: flex;
-   justify-self: center;
+.card > .rate {
+  font-size: 14px;
+  display: flex;
+  justify-self: center;
 }
 .popup-wrapper {
-   position: fixed;
-   background-color: #2224;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   backdrop-filter: blur(2px);
-   display: none;
-   justify-content: center;
-   align-items: center;
+  position: fixed;
+  background-color: #2224;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(2px);
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 .popup {
-   /* padding: 35px; */
-   background-color: #7b9eb6;
-   width: 400px;
-   box-sizing: border-box;
-   border-radius: 8px;
-   position: relative;
-   display: none;
+  /* padding: 35px; */
+  background-color: #7b9eb6;
+  width: 400px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  position: relative;
+  display: none;
 }
-.popup>.close {
-   position: absolute;
-   width: 30px;
-   height: 30px;
-   border-radius: 50%;
-   border: 1px solid silver;
-   background-color: #cebebe;
-   color: #fff;
-   font-size: 24px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   line-height: 1;
-   transform: rotate(45deg);
-   top: -10px;
-   right: -10px;
-   cursor: pointer;
+.popup > .close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid silver;
+  background-color: #cebebe;
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  transform: rotate(45deg);
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
 }
 
 .popup .content {
-   padding: 35px;
+  padding: 35px;
 }
 .popup.active {
-   display: block;
+  display: block;
 }
 .popup-wrapper.active {
-   display: flex;
+  display: flex;
 }
 form {
-   display: flex;
-   flex-direction: column;
-   gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .row {
-   display: flex;
-   flex-direction: column;
-   gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 h2 {
-   margin: 0;
+  margin: 0;
 }
 
 .popup h2 {
-   margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-input, button{
-line-height: 1.5;
-padding: 4px;
-border-radius: 14px;
+input,
+button {
+  line-height: 1.5;
+  padding: 4px;
+  border-radius: 14px;
 }
 
 .popup h2 {
-text-align: center;
+  text-align: center;
 }
- 
+
 .card .description {
-   width: 400%;
+  width: 400%;
 }
 .controls {
-display: flex;
-flex-direction: row;
-align-items: center;
-/* gap:20px; */
-justify-content: space-around;
-margin-bottom: 12px;
-margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* gap:20px; */
+  justify-content: space-around;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .container_preview {
-padding-left: 35px;
-padding-right: 35px;
-padding-bottom: 35px;
-
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 35px;
 }
 
 .add-new [data-name="add"] {
-   display: block;
+  display: block;
 }
 .add-new [data-name="save"] {
-   display: none;
+  display: none;
 }
 .add-edit [data-name="add"] {
-   display: none;
+  display: none;
 }
 .add-edit [data-name="save"] {
-   display: block;
+  display: block;
+}
+
+.button__green {
+  background: #7c9be4;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button__green:hover {
+  background: rgb(44, 68, 148);
 }

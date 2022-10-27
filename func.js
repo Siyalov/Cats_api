@@ -29,8 +29,8 @@ const createCard = (data, parent, arr, api) => {
     <div class="close">+</div>
     <div class="container_preview">
       <div class="controls">
-        <button name="delete">УДАЛИТЬ</button>
-        <button name="edit">РЕДАКТИРОВАТЬ</button>
+        <button class="button__green" name="delete">УДАЛИТЬ</button>
+        <button class="button__green" name="edit">РЕДАКТИРОВАТЬ</button>
       </div> 
       <div class="card">
         <div class="pic big-pic" style = "background-image:url(${
