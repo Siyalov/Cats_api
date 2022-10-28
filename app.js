@@ -74,8 +74,18 @@ btn.addEventListener("click", (e) => {
   add.classList.remove("add-edit");
 });
 
+let allowPopupClose = true;
+
+popBox.addEventListener(
+  "mousedown",
+  (e) => {
+    allowPopupClose = e.target === popBox;
+  },
+  { passiv: true }
+);
+
 popBox.addEventListener("click", function (e) {
-  if (e.target === this) {
+  if (allowPopupClose && e.target === this) {
     popBox.classList.remove("active");
     popupList.forEach((p) => {
       if (p.classList.contains("active")) {
@@ -83,4 +93,5 @@ popBox.addEventListener("click", function (e) {
       }
     });
   }
+  allowPopupClose = true;
 });
