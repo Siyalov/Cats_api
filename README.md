@@ -9,12 +9,19 @@ https://siyalov.github.io/Cats_api/
 * создание popup для возможности редактирования 
 
 ## Скриншоты 
+
 ![alt text](docs/Cats.png)
+
   Карточка кота
+  
 ![alt text](docs/Cats2.png)
+
 Добавление
+
 ![alt text](docs/Cats4.png)
+
 Редактирование
+
 ![alt text](docs/Cats3.png)
  
 ## Цели на проект:
